@@ -1,0 +1,25 @@
+name: Frontend Prod - Version Rotate + Build + Deploy
+
+on:
+  pull_request:
+    types: [closed]         # Trigger only when a PR is merged/closed
+    branches:
+      - main 
+  workflow_dispatch:
+
+jobs:
+  version-rotate-build-deploy:
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
+
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Checkout Code
+        run: echo "hello"
+
+
+      
+
